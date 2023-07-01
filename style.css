@@ -1,0 +1,455 @@
+:root {
+  /* Colors */
+  --clr-primary-very-dark-blue: hsl(243, 87%, 12%);
+  --clr-primary-desaturated-blue: hsl(238, 22%, 44%);
+
+  --clr-accent-bright-blue: hsl(224, 93%, 58%);
+  --clr-accent-bright-blue-diluted: hsl(224, 93%, 70%);
+  --clr-accent-moderate-cyan: hsl(170, 45%, 43%);
+  --clr-accent-moderate-cyan-diluted: hsl(170, 45%, 60%);
+
+  --clr-neutral-light-grayish-blue: hsl(240, 75%, 98%);
+  --clr-neutral-light-gray: hsl(0, 0%, 75%);
+
+  --clr-neutral-shadow: hsl(240, 75%, 95%);
+
+  /* Font Family */
+  --font-family-primary: "Open Sans", sans-serif;
+  --font-family-secondary: "Raleway", sans-serif;
+
+  /* Font Weight */
+  --font-weight-bold: 700;
+  --font-weight-regular: 400;
+
+  /* Font Size */
+  --font-size-200: 0.75rem;
+  --font-size-300: 0.875rem;
+  --font-size-400: 1rem;
+  --font-size-500: 1.125rem;
+  --font-size-600: 1.25rem;
+  --font-size-700: 1.5rem;
+  --font-size-800: 1.875rem;
+  --font-size-900: 2.25rem;
+}
+
+/* Reset */
+/*  https://piccalil.li/blog/a-modern-css-reset */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* General styling */
+
+body {
+  background-color: white;
+  color: var(--clr-primary-desaturated-blue);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-400);
+}
+
+a {
+  text-decoration: none;
+  color: var(--clr-primary-very-dark-blue);
+}
+
+header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 2rem;
+}
+
+nav {
+  font-family: var(--font-family-secondary);
+}
+
+.logo {
+  object-fit: cover;
+  width: 100px;
+  height: 100%;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+}
+
+.hero-section {
+  color: var(--clr-primary-very-dark-blue);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+h1 {
+  font-family: var(--font-family-secondary);
+  color: var(--clr-primary-very-dark-blue);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-700);
+  margin: 2rem 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0;
+  max-width: 70%;
+}
+
+form input {
+  border: 1px solid var(--clr-primary-very-dark-blue);
+  width: 100%;
+  height: 3rem;
+  border-radius: 3px;
+  padding: 0.5rem 2rem;
+  color: var(--clr-neutral-light-gray);
+  margin-bottom: 0.5rem;
+}
+
+form input:invalid {
+  border: 2px solid red;
+  margin-bottom: 0;
+}
+
+form input:focus {
+  outline: none;
+}
+
+form span {
+  display: none;
+  color: red;
+  text-align: left;
+  font-size: var(--font-size-200);
+  margin: 0.5rem 0;
+}
+
+form .error-message {
+  display: none;
+  color: var(--clr-neutral-light-grayish-blue);
+  text-align: left;
+  font-size: var(--font-size-200);
+  margin: 0.5rem 0;
+}
+
+form input:invalid ~ span {
+  display: block;
+}
+
+form button {
+  border: none;
+  border-radius: 3px;
+  background-color: var(--clr-accent-bright-blue);
+  color: var(--clr-neutral-light-grayish-blue);
+  font-weight: var(--font-weight-bold);
+  width: 100%;
+  height: 3rem;
+}
+
+form button:hover {
+  background-color: var(--clr-accent-bright-blue-diluted);
+}
+
+form:invalid button {
+  pointer-events: none;
+}
+
+.testimonials-section {
+  background-image: url(bg-curve-mobile.svg);
+  background-position: center top;
+  background-size: cover;
+  background-repeat: none;
+  color: var(--clr-primary-desaturated-blue);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.testimonials-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.testimonials-container p {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.testimonials-container a {
+  color: var(--clr-accent-moderate-cyan);
+  text-decoration: underline;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 50%;
+  margin-bottom: 2rem;
+}
+
+.testimonials-container a:hover {
+  color: var(--clr-accent-moderate-cyan-diluted);
+}
+
+.testimonial {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  color: var(--clr-primary-very-dark-blue);
+  font-size: var(--font-size-300);
+  box-shadow: 0 0 0.5rem 0.1rem var(--clr-neutral-shadow);
+  width: 80%;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: center;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+  margin-right: 1rem;
+}
+
+.name {
+  font-weight: var(--font-weight-bold);
+}
+
+.title {
+  font-size: var(--font-size-200);
+}
+
+.sign-up-section {
+  background-color: var(--clr-primary-desaturated-blue);
+  color: var(--clr-neutral-light-grayish-blue);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding: 2rem 2rem;
+}
+
+.sign-up-section h2 {
+  font-weight: var(--font-weight-bold);
+  font-family: var(--font-family-secondary);
+  font-size: var(--font-size-500);
+  margin: 2rem 0;
+}
+
+footer {
+  background-color: var(--clr-primary-very-dark-blue);
+  color: var(--clr-neutral-light-grayish-blue);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+footer .logo {
+  object-fit: cover;
+  width: 150px;
+  height: 100%;
+  margin-bottom: 2rem;
+  filter: invert(100%) sepia(4%) saturate(21%) hue-rotate(235deg)
+    brightness(106%) contrast(100%);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 9fr;
+  grid-template-rows: 1fr 1fr;
+  grid-auto-flow: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-column a {
+  color: var(--clr-neutral-light-grayish-blue);
+  margin: 0.5rem 0;
+}
+
+.flex-column a:hover {
+  filter: invert(52%) sepia(66%) saturate(1571%) hue-rotate(200deg)
+    brightness(100%) contrast(97%);
+}
+
+.social-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 40%;
+  align-self: center;
+}
+
+.social-section img {
+  border: 1px solid black;
+  border-radius: 100px;
+  padding: 0.5rem;
+  filter: invert(100%) sepia(4%) saturate(21%) hue-rotate(235deg)
+    brightness(106%) contrast(100%);
+}
+
+.social-section img:hover {
+  filter: invert(52%) sepia(66%) saturate(1571%) hue-rotate(200deg)
+    brightness(100%) contrast(97%);
+}
+
+/* Media queries */
+@media (min-width: 50em) {
+  header {
+    grid-template-columns: 3fr 2fr;
+    padding: 2rem 4rem;
+  }
+  .hero-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-height: 600px;
+    margin-bottom: 5rem;
+    padding: 2rem 4rem;
+  }
+  .hero-section img,
+  .testimonials-section img {
+    object-fit: contain;
+    order: 1;
+    max-height: 80%;
+  }
+  .hero-container,
+  .testimonials-container,
+  .sign-up-container {
+    align-items: flex-start;
+    text-align: left;
+  }
+  form {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 1rem;
+    font-size: var(--font-size-300);
+    max-width: 80%;
+  }
+  form input {
+    padding: 0.5rem 1rem;
+  }
+  h1 {
+    font-size: var(--font-size-900);
+  }
+  .testimonials-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 2rem 4rem;
+  }
+  .sign-up-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem 4rem;
+  }
+  .sign-up-section h2 {
+    margin: 1rem 0;
+  }
+  footer {
+    display: grid;
+    grid-template-columns: 3fr 2fr 2fr;
+    gap: 1rem;
+    padding: 2rem 4rem;
+  }
+  .link-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .social-section {
+    width: 60%;
+  }
+  .flex-column {
+    justify-content: start;
+  }
+  footer .logo {
+    width: 150px;
+    height: 40px;
+  }
+}
